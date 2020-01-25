@@ -6,11 +6,9 @@ class TasksController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-
     task = Task.new({
       title: params[:task][:title],
       description: params[:task][:description]
@@ -19,5 +17,9 @@ class TasksController < ApplicationController
     task.save
 
     redirect_to '/tasks'
+  end
+
+  def show
+    @task = Task.find(params[:id])
   end
 end
